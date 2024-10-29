@@ -1,0 +1,21 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Parámetros
+prob_exito = 0.7  # Probabilidad de cumplir un pedido
+pedidos_diarios = 20  # Pedidos diarios
+dias = 7  # Días de la semana
+
+# Generar la simulación binomial para una semana
+pedidos_satisfechos = np.random.binomial(pedidos_diarios, prob_exito, dias)
+
+# Resultados
+print("Número de pedidos satisfechos por día durante una semana:", pedidos_satisfechos)
+print("Promedio de pedidos satisfechos:", np.mean(pedidos_satisfechos))
+
+# Visualización
+plt.bar(range(1, dias + 1), pedidos_satisfechos, color='skyblue')
+plt.xlabel('Día')
+plt.ylabel('Pedidos Satisfechos')
+plt.title('Distribución de Pedidos Satisfechos en una Semana')
+plt.show()
