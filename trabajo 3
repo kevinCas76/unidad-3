@@ -1,0 +1,17 @@
+# Parámetros
+media_log = 10  # Tiempo medio de espera (minutos)
+std_dev_log = 2  # Desviación estándar
+
+# Generar tiempos de espera para 50 clientes
+tiempos_espera = np.random.lognormal(mean=np.log(media_log), sigma=std_dev_log, size=50)
+
+# Resultados
+print("Tiempos de espera (minutos):", tiempos_espera[:10])  # Mostrar los primeros 10 tiempos de espera
+print("Tiempo de espera promedio:", np.mean(tiempos_espera))
+
+# Visualización
+plt.hist(tiempos_espera, bins=15, color='salmon', edgecolor='black')
+plt.xlabel('Tiempo de Espera (minutos)')
+plt.ylabel('Número de Clientes')
+plt.title('Distribución LogNormal de Tiempos de Espera')
+plt.show()
