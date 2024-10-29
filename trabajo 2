@@ -1,0 +1,18 @@
+# Parámetros
+tasa_llegadas = 1 / 15  # tasa de llegadas por minuto (una llegada cada 15 minutos)
+horas_operacion = 12  # horas de operación
+minutos_operacion = horas_operacion * 60  # minutos de operación
+
+# Generar los tiempos entre llegadas
+tiempos_entre_llegadas = np.random.exponential(1 / tasa_llegadas, minutos_operacion)
+
+# Resultados
+print("Tiempos entre llegadas (en minutos):", tiempos_entre_llegadas[:10])  # Mostrar los primeros 10 tiempos
+print("Número total de llegadas:", len(tiempos_entre_llegadas))
+
+# Visualización
+plt.hist(tiempos_entre_llegadas, bins=30, color='lightgreen', edgecolor='black')
+plt.xlabel('Tiempo entre llegadas (minutos)')
+plt.ylabel('Frecuencia')
+plt.title('Distribución Exponencial de los Tiempos Entre Llegadas')
+plt.show()
